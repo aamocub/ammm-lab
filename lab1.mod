@@ -14,13 +14,13 @@ main {
 	if (cplex.solve()) {
 		writeln("Max load " + 100 * cplex.getObjValue() + "%");
 
-		for (var c=1; c<=model.nCPUs; c++) {
+		for (var c = 1; c <= model.nCPUs; c++) {
 			var load = 0;
 
-			for (var t=1;t<=model.nTasks;t++)
+			for (var t = 1; t <= model.nTasks; t++)
 				load += (model.rt[t]* model.x_tc[t][c]);
 
-			load = (1/model.rc[c])*load;
+			load = (1/model.rc[c]) * load;
 			writeln("CPU " + c + " loaded at " + 100 * load + "%");
 		}
 	} else {
