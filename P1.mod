@@ -1,15 +1,10 @@
-/*********************************************
- * OPL 22.1.1.0 Model
- * Author: aamocub
- * Creation Date: Sep 29, 2025 at 1:18:11 PM
- *********************************************/
 
 int nTasks = ...;
 int nCPUs  = ...;
-range T=1..nTasks;
-range C=1..nCPUs;
-float rt[t in T]= ...;
-float rc[c in C]= ...;
+range T = 1..nTasks;
+range C = 1..nCPUs;
+float rt[t in T] = ...;
+float rc[c in C] = ...;
 
 dvar float+ x_tc[t in T, c in C];
 dvar float+ z;
