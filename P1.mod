@@ -14,6 +14,13 @@ float rc[c in C]= ...;
 dvar float+ x_tc[t in T, c in C];
 dvar float+ z;
 
+execute {
+	var totalLoad=0;
+	for (var t=1;t<=nTasks;t++)
+		totalLoad += rt[t];
+	writeln("Total load "+ totalLoad);
+};
+
 // Objective
 minimize z;
 
@@ -30,3 +37,13 @@ subject to{
 	forall(c in C)
 		z >= (1/rc[c])*sum(t in T) rt[t]* x_tc[t,c];
 }
+
+execute {
+	for (var c=1;c<=nCPUs;c++) {
+		var load=0;
+		for (var t=1;t<=nTasks;t++)
+			load+=(rt[t]* x_tc[t][c]);
+		load= (1/rc[c])*load;
+		writeln("CPU " + c + " loaded at " + 100*load + "%");
+	}
+};
