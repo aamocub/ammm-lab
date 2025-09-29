@@ -10,8 +10,8 @@ dvar float+ x_tc[t in T, c in C];
 dvar float+ z;
 
 execute {
-	var totalLoad=0;
-	for (var t=1;t<=nTasks;t++)
+	var totalLoad = 0;
+	for (var t = 1; t <= nTasks; t++)
 		totalLoad += rt[t];
 	writeln("Total load "+ totalLoad);
 };
@@ -26,19 +26,19 @@ subject to{
 
 	// Constraint 2
 	forall(c in C)
-		sum(t in T) rt[t]* x_tc[t,c] <= rc[c];
+		sum(t in T) rt[t] * x_tc[t,c] <= rc[c];
 
 	// Constraint 3
 	forall(c in C)
-		z >= (1/rc[c])*sum(t in T) rt[t]* x_tc[t,c];
+		z >= (1/rc[c]) * sum(t in T) rt[t] * x_tc[t,c];
 }
 
 execute {
-	for (var c=1;c<=nCPUs;c++) {
-		var load=0;
-		for (var t=1;t<=nTasks;t++)
-			load+=(rt[t]* x_tc[t][c]);
-		load= (1/rc[c])*load;
-		writeln("CPU " + c + " loaded at " + 100*load + "%");
+	for (var c = 1; c <= nCPUs; c++) {
+		var load = 0;
+		for (var t = 1; t <= nTasks; t++)
+			load += rt[t] * x_tc[t][c];
+		load = (1/rc[c]) * load;
+		writeln("CPU " + c + " loaded at " + 100 * load + "%");
 	}
 };
