@@ -13,13 +13,23 @@ execute {
 	var totalLoad = 0;
 	for (var t = 1; t <= nTasks; t++)
 		totalLoad += rt[t];
-	writeln("Total load "+ totalLoad);
+	writeln("Total load " + totalLoad);
+
+	var totalResources = 0;
+	for (var c = 1; c <= nCPUs; c++)
+		totalResources += rc[c];
+	writeln("Total resources " + totalResources);
+
+	if (totalLoad > totalResources) {
+		writeln("Total load exceeds resources. Aborting...");
+		stop();
+	}
 };
 
 // Objective
 minimize z;
 
-subject to{
+subject to {
 	// Constraint 1
 	forall(t in T)
 		sum(c in C) x_tc[t,c] == 1;
