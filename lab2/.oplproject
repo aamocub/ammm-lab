@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+    	
+    <version>1.0</version>
+    	
+    <configs>
+        		
+        <config default="false" name="C1" category="opl">
+            			
+            <ref name="lab1.mod" type="model">
+			</ref>
+            		
+        </config>
+        		
+        <config default="true" name="C2" category="opl">
+            			
+            <ref name="P1.mod" type="model">
+			</ref>
+            			
+            <ref name="P1.dat" type="data">
+			</ref>
+            		
+        </config>
+        	
+    </configs>
+    	
+
+</project>
