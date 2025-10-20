@@ -22,7 +22,7 @@ execute {
 	writeln("Total resources " + totalResources);
 };
 
-// Objective: maximize the ammount of served load
+// Objective: maximize the amount of served load
 maximize sum(c in C) sum(t in T) rt[t] * x_tc[t,c];
 
 subject to {

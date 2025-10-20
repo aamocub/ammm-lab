@@ -1,6 +1,7 @@
 
 int nTasks = ...;
 int nCPUs  = ...;
+int K = ...;
 range T = 1..nTasks;
 range C = 1..nCPUs;
 float rt[t in T] = ...;
