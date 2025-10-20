@@ -1,10 +1,10 @@
 
 main {
-	var src = new IloOplModelSource("P1.mod");
+	var src = new IloOplModelSource("P2a.mod");
 	var def = new IloOplModelDefinition(src);
 	var cplex = new IloCplex();
 	var model = new IloOplModel(def,cplex);
-	var data = new IloOplDataSource("P1.dat");
+	var data = new IloOplDataSource("P2.dat");
 	model.addDataSource(data);
 	model.generate();
 

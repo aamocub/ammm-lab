@@ -21,12 +21,19 @@
             		
         </config>
         		
-        <config default="true" name="C3" category="opl">
+        <config default="false" name="C3" category="opl">
             			
             <ref name="lab2/P2a.mod" type="model">
 			</ref>
             			
             <ref name="lab2/P2.dat" type="data">
+			</ref>
+            		
+        </config>
+        		
+        <config default="true" name="C4" category="opl">
+            			
+            <ref name="lab2/lab2.mod" type="model">
 			</ref>
             		
         </config>
