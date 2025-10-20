@@ -20,11 +20,6 @@ execute {
 	for (var c = 1; c <= nCPUs; c++)
 		totalResources += rc[c];
 	writeln("Total resources " + totalResources);
-
-	if (totalLoad > totalResources) {
-		writeln("Total load exceeds resources. Aborting...");
-		stop();
-	}
 };
 
 // Objective
@@ -42,7 +37,8 @@ subject to {
 	// Constraint 3
 	forall(c in C)
 		z >= (1/rc[c]) * sum(t in T) rt[t] * x_tc[t,c];
-	
+
+	// Constraint 4
 	sum(t in T) sum(c in C) x_tc[t,c] >= nTasks - K;
 	
 }
