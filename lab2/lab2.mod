@@ -1,6 +1,6 @@
 
 main {
-	var src = new IloOplModelSource("P2a.mod");
+	var src = new IloOplModelSource("P2d.mod");
 	var def = new IloOplModelDefinition(src);
 	var cplex = new IloCplex();
 	var model = new IloOplModel(def,cplex);
